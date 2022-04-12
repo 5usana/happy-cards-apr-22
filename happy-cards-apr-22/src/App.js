@@ -1,7 +1,8 @@
 import './App.scss';
 import Home from './components/Home';
 import HeaderFooter from './components/HeaderFooter';
-import MovieDetails from './components/MovieDetails';
+import HolidayPicker from './components/HolidayPicker';
+// import MovieDetails from './components/MovieDetails';
 // import { movieData } from './components/movieData';
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
 		<div>
 			{/* <MovieDetails title={movieData.Title} type={movieData.Genre} /> */}
 			<HeaderFooter>
-				<Home />
+				{/* <Home /> */}
+				<HolidayPicker />
 			</HeaderFooter>
 		</div>
 	);
