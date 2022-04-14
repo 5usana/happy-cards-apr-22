@@ -23,38 +23,42 @@
 
 .Home-HeroSection {
   margin-bottom: 80px;
-  height: 50px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.HighlightCard{
-  border: solid 1px;
-  color: rgb(6, 68, 59);
+.Home-HighlightsSection {
+  display: flex;
+  justify-content: space-around;
+  width: 60vw;
+}
+
+// HighlightCard
+
+.HighlightCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 8px #c8c5dc;
+  border: 1px solid #9a94bf;
+  border-radius: 10px;
+  width: 15vw;
   padding: 20px;
 }
 
-
 .HighlightCard-Icon {
-  color: darkblue;
-
+  color: darkslateblue;
 }
 
 .HighlightCard-Header {
   margin: 20px 0;
   font-size: 20px;
-
-
+  font-weight: 700;
 }
 
 .HighlightCard-Subtext {
-  color:black;
+  color: #333;
 }
-
-// .MovieDetailsContainer {
-//  border: solid 1px;
-//   color: rgb(6, 68, 59);
-//   padding: 20px;
-// }
