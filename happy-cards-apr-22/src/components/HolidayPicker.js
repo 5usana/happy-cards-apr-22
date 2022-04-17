@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getMonthNumberByMonthName } from './utils';
 
 const API_KEY = process.env.REACT_APP_HOLIDAYS_API_KEY;
 
