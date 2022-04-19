@@ -3,9 +3,14 @@ import { useState } from 'react';
 export default function CardForm() {
 	const [recipientName, setRecipientName] = useState('');
 
-    function handleSubmit(event){
-        
-    }
+	function handleSubmit(event) {
+		event.preventDefault();
+		const payload = {
+			recipientName: recipientName,
+		};
+		console.log('paylod is:', payload);
+	}
+
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
