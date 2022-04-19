@@ -1,14 +1,16 @@
 import './App.scss';
-import Home from './components/Home';
+import CardForm from './components/CardForm';
+// import Home from './components/Home';
 import HeaderFooter from './components/HeaderFooter';
-import HolidayPicker from './components/HolidayPicker';
+// import HolidayPicker from './components/HolidayPicker';
 
 function App() {
 	return (
 		<div>
 			<HeaderFooter>
 				{/* <Home /> */}
-				<HolidayPicker />
+				{/* <HolidayPicker /> */}
+				<CardForm />
 			</HeaderFooter>
 		</div>
 	);
