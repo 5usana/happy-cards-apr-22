@@ -1,7 +1,10 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
+import { Button } from './StyledComponents';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faXmark } from '@fortawesome/free-solid-svg-icons';
+
+const API_KEY = process.env.REACT_APP_HOLIDAYS_API_KEY;
 
 const modalStyles = {
 	overlay: {
@@ -19,6 +22,26 @@ const modalStyles = {
 };
 
 export default function HolidayPickerModal({ isModalOpen, setIsModalOpen }) {
+	const [selectedTimeframe, setSelectedTimeframe] = useState('year');
+	const [holidayList, setHolidayList] = useState([]);
+
+	useEffect(() => {
+		async function getHolidays() {
+			let params;
+			if (selectedTimeframe === 'year') {
+				params = '&year=2022';
+			} else if (selectedTimeframe === 'month') {
+				params = '&year=2022&month=4';
+			}
+			const url = `https://holidays.abstractapi.com/v1/?api_key=${API_KEY}&country=US${params}`;
+			const response = await fetch(url);
+			const data = await response.json();
+			console.log(data);
+			setHolidayList(data);
+		}
+		getHolidays();
+	}, [selectedTimeframe]);
+
 	useEffect(() => {
 		ReactModal.setAppElement('body');
 	}, []);
@@ -30,10 +53,17 @@ export default function HolidayPickerModal({ isModalOpen, setIsModalOpen }) {
 				<div
 					className='Modal-CloseButtonWrapper'
 					onClick={() => setIsModalOpen(false)}>
-					{/* <FontAwesomeIcon icon={faXmark} size='lg' */}
-					{/* /> */}
+					{' '}
+					CLOSE
+					{/* <FontAwesomeIcon icon={faXmark} size='lg' /> */}
 				</div>
+				<Button>test</Button>
 			</div>
+			{/* <div>{holidayList.length > 0 &&
+			holidayList.map((holiday, index) => (
+				<div key={index}
+			)
+			})}</div> */}
 		</ReactModal>
 	);
 }
