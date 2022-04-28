@@ -1,9 +1,7 @@
-import React from 'react';
-
-export const LabeledTextInput = ({ name, value, setValue }) => {
+export default function LabeledTextInput({ name, value, setValue }) {
 	return (
 		<div className='Form-InputWrapper'>
-			<label className='Label' htmlFor='Name'>
+			<label className='Label' htmlFor={name}>
 				{name}
 			</label>
 			<input
@@ -15,4 +13,4 @@ export const LabeledTextInput = ({ name, value, setValue }) => {
 			/>
 		</div>
 	);
-};
+}

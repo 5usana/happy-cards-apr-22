@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import ReactModal from 'react-modal';
-import { Button } from './StyledComponents';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 const API_KEY = process.env.REACT_APP_HOLIDAYS_API_KEY;
 
@@ -24,6 +24,8 @@ const modalStyles = {
 export default function HolidayPickerModal({ isModalOpen, setIsModalOpen }) {
 	const [selectedTimeframe, setSelectedTimeframe] = useState('year');
 	const [holidayList, setHolidayList] = useState([]);
+	const { theme } = useContext(ThemeContext);
+	console.log('theme is:', theme);
 
 	useEffect(() => {
 		async function getHolidays() {
@@ -57,13 +59,8 @@ export default function HolidayPickerModal({ isModalOpen, setIsModalOpen }) {
 					CLOSE
 					{/* <FontAwesomeIcon icon={faXmark} size='lg' /> */}
 				</div>
-				<Button>test</Button>
 			</div>
-			{/* <div>{holidayList.length > 0 &&
-			holidayList.map((holiday, index) => (
-				<div key={index}
-			)
-			})}</div> */}
+			<div>{holidayList.length}</div>
 		</ReactModal>
 	);
 }
